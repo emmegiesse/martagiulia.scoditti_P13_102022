@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
-import logo from '../assets/bank-tree.jpeg'
+import logo from '../assets/argentBankLogo.png';
 
 export default function Header() {
     const navigate = useNavigate()

@@ -1,24 +1,32 @@
+// import REACT
 import React from 'react';
+//import ReactDOM from 'react-dom';
 import ReactDOM from 'react-dom/client';
-//import { Provider } from 'react-redux';
-import reportWebVitals from './reportWebVitals';
 
-import './index.css';
+// import REDUX
+import { Provider } from 'react-redux';
+// import STORE
+import { store } from './redux/store';
 
+// import COMPOSANTS
 import App from './app/App';
-//import { store } from './utils/store';
-//import * as serviceWorker from './serviceWorker';
+
+// import STYLE
+import './style/appStyle.css';
+
+import reportWebVitals from './reportWebVitals';
+// import * as serviceWorker from './serviceWorker';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <App />
-    {/*
     <Provider store={store}>
       <App />
     </Provider>
-    */}
+      {/*
+      <App />
+      */}
   </React.StrictMode>
 );
 

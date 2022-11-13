@@ -1,10 +1,15 @@
+// import REACT
 import React from 'react'; //React
 import { useNavigate } from 'react-router-dom'; 
 
+// import ICONES
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+
+// import IMAGES
 import logo from '../assets/img/argentBankLogo.png';
 
+// JS____________________________________________
 const Header = () => {
     const navigate = useNavigate()
 

@@ -16,7 +16,6 @@ function App() {
     <div className="app">
       <BrowserRouter basename={process.env.PUBLIC_URL} >
         <Header />
-          <main>
             <Routes>
               <Route exact path="/" element={<HomePage />} />
               <Route path="/login" element={<LoginPage />} />
@@ -25,7 +24,6 @@ function App() {
               <Route path="/user" element={<UserPage />} /> 
               */}       
             </Routes>
-          </main>
         <Footer />
       </BrowserRouter>
     </div>

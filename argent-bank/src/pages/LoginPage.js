@@ -1,14 +1,35 @@
-import React, { useEffect, useState } from 'react';
+// import REACT
+import React from 'react';
 
-const LoginPage = () => {
+// import COMPONENTS
+import LoginForm from '../components/loginpage/LoginForm.js';
 
+// import ICONES
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+
+// import STYLE
+import '../style/loginpageStyle.css';
+
+/**
+ * Login page
+ * @name LoginPage
+ * @returns {JSX} 
+ * @component
+*/
+
+// JSX _____________________________________________________________________________
+
+function LoginPage() {
     return (
-        <div>
-            <footer className="footer">
-        <p className="footer-text">Copyright 2020 Argent Bank</p>
-      </footer>
-        </div>
-    );
+        <main class="sign-in-main">
+            <div class="bg"></div>
+            <section class="sign-in-content">
+                <FontAwesomeIcon className = "fa fa-user-circle " icon={faUserCircle} />
+                <h1>Sign In</h1>
+                <LoginForm />
+            </section>
+        </main>
+    )
 }
-
 export default LoginPage;

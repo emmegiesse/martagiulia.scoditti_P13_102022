@@ -13,8 +13,9 @@ body {
     min-height: 100vh;
 }
 
-.main {
-    flex: 1;
+.header {
+    color: #fff;
+    margin-bottom: 2rem;
 }
 
 .bg-dark {

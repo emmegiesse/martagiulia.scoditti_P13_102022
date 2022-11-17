@@ -1,14 +1,18 @@
 import React from 'react';
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom';
 
 const ErrorPage = () => {
 
     return (
-        <div className="error-page">
-            <h2 className="error-msg">Error page</h2>
-            <p className="error-404"> 404 </p>
-            <p> Oups! La page que vous demandez n'existe pas </p>
-            <p className="error-redirect"><Link to="/">Retourner sur la page d'accueil</Link></p>
+        <div className="errorpage">
+            <div className="hero">
+            <section className="hero-content">
+              <h2 className="sr-only">Error page</h2>
+              <p className="subtitle">404</p>
+              <p className="subtitle">Oups! La page que vous demandez n'existe pas.</p>
+              <p className="text"><Link to="/">Retourner sur la page d'accueil</Link></p>
+            </section>
+          </div>
         </div>
     );
 }

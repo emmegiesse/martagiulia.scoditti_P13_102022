@@ -1,9 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// import COMPOSANTS 
+import Header from '../components/Header';
+
 const ErrorPage = () => {
 
     return (
+      <div>
+        <Header />
         <div className="errorpage">
             <div className="hero">
             <section className="hero-content">
@@ -14,6 +19,7 @@ const ErrorPage = () => {
             </section>
           </div>
         </div>
+      </div>
     );
 }
 

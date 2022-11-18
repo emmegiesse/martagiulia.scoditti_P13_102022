@@ -2,6 +2,7 @@
 import React from 'react';
 
 // import COMPONENTS
+import Header from '../components/Header';
 import LoginForm from '../components/loginpage/LoginForm.js';
 
 // import ICONES
@@ -22,14 +23,18 @@ import '../style/loginpageStyle.css';
 
 function LoginPage() {
     return (
-        <main class="sign-in-main">
-            <div class="bg"></div>
-            <section class="sign-in-content">
-                <FontAwesomeIcon className = "fa fa-user-circle " icon={faUserCircle} />
-                <h1>Sign In</h1>
-                <LoginForm />
-            </section>
-        </main>
+        <div>
+            <Header />
+            <main class="sign-in-main">
+                <div class="bg"></div>
+                <section class="sign-in-content">
+                    <FontAwesomeIcon className = "fa fa-user-circle " icon={faUserCircle} />
+                    <h1>Sign In</h1>
+                    <LoginForm />
+                </section>
+            </main>
+        </div>
+
     )
 }
 export default LoginPage;

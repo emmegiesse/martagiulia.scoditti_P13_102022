@@ -1,13 +1,13 @@
 // import REACT
 import React from 'react';
 import { useState, useEffect } from 'react';
-//import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 
 // import REDUX
-//import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 // import LOCALSTORAGE
-//import { logIn } from '../../redux/reducers.js'
+import { logIn } from '../../redux/reducers.js'
 import getLocalStorage from '../../storage/storage.js';
 
 // import API
@@ -27,6 +27,8 @@ const LoginForm = () => {
     const [password, setPassword] = useState("");
     const [rememberMe, setRememberMe ] = useState(false);
     const [error, setError] = useState("");
+    const dispatch = useDispatch();
+    let navigate = useNavigate();
     
     const handleSubmit = async (e) => {
         console.log("username", userName)
@@ -55,13 +57,17 @@ const LoginForm = () => {
         if (rememberMe) {
             localStorage.setItem(
                 "rememberData",
-                JSON.stringify({ rememberMe, userName })
+                JSON.stringify({ rememberMe, userName, password})
             ); 
         }
         const rememberCheckBox = document.getElementById("remember-me")
         if(!rememberCheckBox.checked) {
             localStorage.clear()
         }
+
+        dispatch(logIn(response.data.body.token))
+        navigate('/user')
+
     };
     
     useEffect(() => {
@@ -69,6 +75,7 @@ const LoginForm = () => {
             console.log("loginData", loginData)
             setRememberMe(loginData.rememberMe);
             setUserName(loginData.userName);
+            setPassword(loginData.password);
         }, 
     []);
         

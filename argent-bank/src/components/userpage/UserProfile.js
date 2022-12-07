@@ -7,7 +7,7 @@ import { updateUserData } from '../../redux/reducers';
 import { selectFirstName, selectLastName, selectJWT } from '../../redux/selectors';
 
 // import API
-import APICall from '../../service/APIcall';
+import ApiProvider from '../../service/APIcall';
 
 // import ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -28,7 +28,6 @@ const UserProfile = () => {
     console.log("lastname",lastName)
     console.log("token",JWTtoken)
 
-
     async function handleChangeUserInfo(editedFirstName, editedLastName, JWTtoken) {
         if (editedFirstName === '' || 
             editedLastName === '' || 
@@ -39,10 +38,10 @@ const UserProfile = () => {
         };
         
         // set response via APICall
-        const response = await new APICall().updateUserProfileData(editedFirstName, editedLastName, JWTtoken)
-        console.log("firstname",editedFirstName)
-        console.log("lastname",editedLastName)
-        console.log("token",JWTtoken)
+        const response = await new ApiProvider().updateUserProfileData(editedFirstName, editedLastName, JWTtoken)
+        //console.log("firstname",editedFirstName)
+        //console.log("lastname",editedLastName)
+        //console.log("token",JWTtoken)
         dispatch(updateUserData(response.data.body))
         setEditInfo(false) 
     }

@@ -14,12 +14,14 @@ function App() {
   return (
     <div className="app">
       <BrowserRouter basename={process.env.PUBLIC_URL} >
+          <main>
             <Routes>
               <Route exact path="/" element={<HomePage />} />
               <Route path="/login" element={<LoginPage />} />
-              <Route path="*" element={<ErrorPage />} /> 
-              <Route path="/user" element={<UserPage />} />  
+              <Route path="/user" element={<UserPage />} /> 
+              <Route path="*" element={<ErrorPage />} />  
             </Routes>
+          </main>
         <Footer />
       </BrowserRouter>
     </div>

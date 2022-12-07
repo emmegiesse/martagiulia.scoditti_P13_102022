@@ -11,7 +11,7 @@ import { logIn } from '../../redux/reducers.js'
 import getLocalStorage from '../../storage/storage.js';
 
 // import API
-import APICall from '../../service/APIcall.js';
+import ApiCalls from '../../service/APIcall.js';
 
 /**
 * Components to display website homepage
@@ -25,15 +25,15 @@ const LoginForm = () => {
     //déclaration des constantes du formulaire 
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
-    const [rememberMe, setRememberMe ] = useState(false);
-    const [error, setError] = useState("");
+    const [error, setError] = useState('')
+    const [rememberMe, setRememberMe ] = useState(false)
     const dispatch = useDispatch();
     let navigate = useNavigate();
     
     const handleSubmit = async (e) => {
         console.log("username", userName)
-        console.log("password",password)
-        console.log("checkbox",rememberMe)
+        //console.log("password",password)
+        //console.log("checkbox",rememberMe)
         e.preventDefault()
         
         // set error cases and message alerts
@@ -49,17 +49,18 @@ const LoginForm = () => {
         }
         
         // set response via APICall
-        const response = await new APICall().userLogIn(userName, password)
+        const response = await new ApiCalls().userLogIn(userName, password)
         if (response.status !== 200) {
             return setError("Username and/or password incorrect")
         }
 
         if (rememberMe) {
             localStorage.setItem(
-                "rememberData",
-                JSON.stringify({ rememberMe, userName, password})
-            ); 
+              "rememberData",
+              JSON.stringify({ rememberMe, userName, password })
+            );
         }
+
         const rememberCheckBox = document.getElementById("remember-me")
         if(!rememberCheckBox.checked) {
             localStorage.clear()
@@ -69,13 +70,13 @@ const LoginForm = () => {
         navigate('/user')
 
     };
-    
+
     useEffect(() => {
         let loginData = getLocalStorage("rememberData", false);
-            console.log("loginData", loginData)
-            setRememberMe(loginData.rememberMe);
-            setUserName(loginData.userName);
-            setPassword(loginData.password);
+        console.log("loginData", loginData)
+        setRememberMe(loginData.rememberMe);
+        setUserName(loginData.userName);
+        //setPassword(loginData.password); 
         }, 
     []);
         

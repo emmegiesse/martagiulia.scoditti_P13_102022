@@ -1,12 +1,12 @@
 // import REDUX
-import { createReducer, createAction } from '@reduxjs/toolkit'
+import { createReducer, createAction } from '@reduxjs/toolkit';
 
 //_______________________________________________________
 // création des actions
-export const logIn = createAction('logIn')
-export const logOut = createAction('logOut')
-export const setUserData = createAction('setUserData')
-export const updateUserData = createAction('updateUserData')
+export const logIn = createAction('logIn');
+export const logOut = createAction('logOut');
+export const setUserData = createAction('setUserData');
+export const updateUserData = createAction('updateUserData');
 
 //_______________________________________________________
 // state initiale 
@@ -22,7 +22,7 @@ const initialState = {
 export default createReducer(initialState, (builder) =>
     builder
 
-    .addCase(logIn, (draft, JWTtoken) => { 
+    .addCase(logIn, (draft, JWTtoken) => { // 
         if (draft.connected === false) {
             draft.connected = true
             draft.JWTtoken = JWTtoken.payload

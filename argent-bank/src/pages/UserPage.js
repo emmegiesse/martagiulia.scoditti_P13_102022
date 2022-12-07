@@ -9,7 +9,7 @@ import { setUserData } from '../redux/reducers';
 import { selectJWT, selectUserLogin } from '../redux/selectors';
 
 // import API
-import APICall from '../service/APIcall';
+import ApiCalls from '../service/APIcall';
 
 // import DATA
 import { transactionData } from '../data/transactionData';
@@ -34,15 +34,15 @@ import '../style/userpageStyle.css'
 function UserPage() {
     let dispatch = useDispatch()
     let JWT = useSelector(selectJWT)
-    console.log("JWT",JWT)
+    //console.log("JWT",JWT)
     const connected = useSelector(selectUserLogin)
-    console.log("status",connected)
+    //console.log("status",connected)
 
     useEffect(() => {
         async function getUserProfile() {
-            const response = await new APICall().getUserProfileData(JWT)
+            const response = await new ApiCalls().getUserProfileData(JWT)
             dispatch(setUserData(response.data.body))
-            console.log("response",response)
+            //console.log("response",response)
             return response
         }
         getUserProfile()

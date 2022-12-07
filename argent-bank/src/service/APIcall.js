@@ -1,15 +1,15 @@
 // import AXIOS
-import axios from 'axios';
+import axios from "axios";
 
 //const loginUrl = 'http://localhost:3001/api/v1/user/login';
 //const profileUrl = 'http://localhost:3001/api/v1/user/profile';
 
-class APICall {
+class ApiCalls { 
   
   async userLogIn(email, password, rememberMe) {
     return await axios.post('http://localhost:3001/api/v1/user/login', {
-    "email": email,
-    "password": password
+        "email": email,
+        "password": password
     })
 
     .then(function (response) {
@@ -35,11 +35,9 @@ class APICall {
         Authorization: "Bearer " + JWT
       }
     })
-
     .then(function (response) {
       return response
     })
-
     .catch (function (error) {
       return error
     }) 
@@ -67,4 +65,4 @@ class APICall {
   }   
 }
 
-export default APICall;
+export default ApiCalls;

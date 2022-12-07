@@ -9,13 +9,12 @@ import { setUserData } from '../redux/reducers';
 import { selectJWT, selectUserLogin } from '../redux/selectors';
 
 // import API
-import ApiCalls from '../service/APIcall';
+import APICalls from '../service/APIcall';
 
 // import DATA
 import { transactionData } from '../data/transactionData';
 
 // import COMPOSANTS
-import UserpageNav from '../components/userpage/UserpageNav';
 import TransactionCard from '../components/userpage/TransactionCard';
 import UserProfile from '../components/userpage/UserProfile';
 
@@ -29,32 +28,35 @@ import '../style/userpageStyle.css'
  * @component
 */
 
-// JSX__________________
-
+// JSX_______________________
 function UserPage() {
     let dispatch = useDispatch()
     let JWT = useSelector(selectJWT)
-    //console.log("JWT",JWT)
+    console.log("JWT",JWT)
     const connected = useSelector(selectUserLogin)
-    //console.log("status",connected)
+    console.log("status",connected)
 
+    // set response via APICall
     useEffect(() => {
         async function getUserProfile() {
-            const response = await new ApiCalls().getUserProfileData(JWT)
+            const response = await new APICalls().getUserProfileData(JWT)
             dispatch(setUserData(response.data.body))
-            //console.log("response",response)
+            console.log("response",response)
             return response
         }
         getUserProfile()
     }, [JWT, dispatch])
 
-    if(connected === false || connected === undefined || connected === null) {
-        return <Navigate to='/sign-in'/>
+    if(
+        connected === false || 
+        connected === undefined || 
+        connected === null
+    ) {
+        return <Navigate to='/login'/>
     }
 
     return (
         <div>
-            <UserpageNav />
             <div className="bg"></div>
             <main className="account-main">
                 <UserProfile />

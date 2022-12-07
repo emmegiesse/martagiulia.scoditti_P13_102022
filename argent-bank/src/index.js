@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom/client';
 // import REDUX
 import { Provider } from 'react-redux';
 // import STORE
-import { store } from './redux/store';
+import { store } from './redux/store.js';
 
 // import COMPOSANTS
 import App from './app/App';
@@ -24,9 +24,6 @@ root.render(
     <Provider store={store}>
       <App />
     </Provider>
-      {/*
-      <App />
-      */}
   </React.StrictMode>
 );
 

@@ -122,8 +122,8 @@ paths:
         - Bearer: []
       tags:
         - Transactions
-      summary: Get all user transactions
-      description: Get logged-in user's transactions
+      summary: Get all user transactions of current month
+      description: Get logged-in user's transactions of the month
       consumes:
         - application/json     
       produces:
@@ -161,7 +161,7 @@ paths:
         - Bearer: []
       tags:
         - Categories
-      summary: Transaction categories
+      summary: Transactions categories
       description: Get transactions categories
       consumes:
         - application/json     
@@ -339,8 +339,12 @@ definitions:
   Informations:
     type: object
     properties:
+      transactionId:
+        type: string
+        description: transaction ID
       date:
         type: string
+        format: date-time
         description: transaction date
         example: June 20th, 2020
       description:
@@ -364,6 +368,9 @@ definitions:
   Details:
     type: object
     properties:
+      transactionId:
+        type: string
+        description: transaction ID
       type:
         type: string
         description: Transaction Type
@@ -385,6 +392,19 @@ definitions:
       notes:
         type: string
         description: transaction notes
+  TransactionsDate:
+        type: object
+        properties:
+          from:
+            type: object
+            format: date
+            description: start date first day of the month
+            example: 'June 1st, 2020'
+          to:
+            type: string
+            format: date
+            description: end date of transaction display (today)
+            example: 'June 20th, 2020'
   Category:
     type: string
     enum:
